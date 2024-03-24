@@ -1,6 +1,7 @@
 "use client";
-import { AuthProvider } from "@pangeacyber/react-auth";
+import { AuthProvider, useAuth } from "@pangeacyber/react-auth";
 import AppBar from "../components/AppBar";
+import SideBar from "../components/SideBar";
 
 import "./globals.css";
 
@@ -10,6 +11,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     clientToken: process?.env?.NEXT_PUBLIC_AUTHN_CLIENT_TOKEN || "",
     domain: process?.env?.NEXT_PUBLIC_PANGEA_DOMAIN || "",
   };
+
+  const { user } = useAuth(); // get user's authentication status
 
   if (!authConfig.clientToken || !authConfig.domain) {
     return (
@@ -31,6 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <AuthProvider loginUrl={hostedLoginURL} config={authConfig}>
           <>
             <AppBar />
+            {user  && <SideBar />} {/* Sidebar will only render if user is authenticated and not loading */}
             {children}
           </>
         </AuthProvider>
