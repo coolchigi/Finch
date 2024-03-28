@@ -22,8 +22,6 @@ export default function SideBar() {
         { name: "Budgets", href: "/budgets", icon: <PiWallet /> },
         { name: "Settings", href: "/settings", icon: <CiSettings /> },
     ]);
-
-
     useEffect(() => {
         if (authenticated) {
             setSidebarItems(prevItems => [
@@ -42,8 +40,8 @@ export default function SideBar() {
                 className="sidebar__logo"
                 alt="Logo"
                 />
+              <p className="sidebar__logo-name">Finch</p>
             </div>
-            <p className="sidebar__logo-name">Finch</p>
             <ul className="sidebar__list">
             {sidebarItems.map(({ name, href, icon }) => {
             return (
