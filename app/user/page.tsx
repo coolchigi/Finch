@@ -11,7 +11,7 @@ const User = () => {
     <main className={styles.main}>
       <div className={styles.card}>
         <h2>Hello {user?.profile?.first_name}!</h2>
-        <p>This is a private page, only authenticated users can view this</p>
+        <p>Welcome to Finch</p>
       </div>
     </main>
   );
