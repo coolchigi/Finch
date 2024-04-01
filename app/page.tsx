@@ -8,9 +8,9 @@ const Home = () => {
 
   return (
     <main className={styles.main}>
-      <div>
+      <div className="styles.content">
         {!authenticated && (
-          <div className={styles.card}>
+          <div >
             <h2>
               Welcome to your brand new NextJS app integrated with{" "}
               <a href="https://pangea.cloud/">Pangea</a>
@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         )}
         {authenticated && (
-          <div className={styles.card}>
+          <div>
             <h2>
               You have been successfully authenticated by{" "}
               <a href="https://pangea.cloud/">Pangea AuthN Service</a>
@@ -27,12 +27,6 @@ const Home = () => {
             <p>Now You are viewing authenticated page content</p>
           </div>
         )}
-
-        <div className={styles.card}>
-          You can read more about <a href="https://pangea.cloud/">Pangea</a>{" "}
-          AuthN service
-          <a href="https://pangea.cloud/docs/authn"> here</a>
-        </div>
       </div>
     </main>
   );
