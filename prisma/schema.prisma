@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id
+  bankAccounts BankAccount[]
+  category     Category[]
+  transaction  Transactions[]
+
+
+}
+
+model Transactions{
+  id            Int         @id @default(sequence())
+  date          DateTime
+  amount        Int
+  note          String?
+  recipient     String?
+  user          User        @relation(fields: [userId], references: [id])
+  userId        String
+  bankAccount   BankAccount @relation(fields: [bankAccountId], references: [id])
+  bankAccountId Int
+  category      Category?   @relation(fields: [categoryId], references: [id])
+  categoryId    Int?
+
+}
+
+
+model Category{
+   id          Int           @id @default(sequence())
+  name        String
+  type        String
+  icon        String
+  iconColor   String
+  user        User          @relation(fields: [userId], references: [id])
+  userId      String
+  transaction Transactions[]
+
+  @@unique([name, type, userId])
+
+}
+
+
+model BankAccount {
+  id            Int           @id @default(sequence())
+  accountNumber String
+  balance       Int
+  user          User          @relation(fields: [userId], references: [id])
+  userId        String
+  transaction   Transactions[]
+
+  @@unique([accountNumber, userId])
+
+}
