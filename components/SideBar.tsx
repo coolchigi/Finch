@@ -11,6 +11,7 @@ import { usePathname  } from 'next/navigation'
 import { useAuth } from "@pangeacyber/react-auth";
 import { useEffect, useState } from 'react';
 
+
 export default function SideBar() {
     const { user, authenticated } = useAuth();
     const pathname = usePathname();
@@ -29,6 +30,7 @@ export default function SideBar() {
                 ...prevItems,
                 { name: `User (${user.profile.first_name})`, href: "/user", icon: <FaRegUserCircle /> }
             ]);
+            
         }
     }, [authenticated]);
 
@@ -36,15 +38,15 @@ export default function SideBar() {
 
     return (
         <div>
-            <aside className="sidebar">
+            <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r bg-custom-pink">
                 <div className="sidebar__top">
                     <Image src="/Designer.png" 
                     width={80} 
                     height={80} 
-                    className="sidebar__logo"
+                    className="sidebar__logo object-contain"
                     alt="Logo"
                     />
-                  <p className="sidebar__logo-name">Finch</p>
+                  <p className="pl-5 text-2xl font-bold tracking-tight text-gray-900 mt-4">Finch</p>
                 </div>
                 <ul className="sidebar__list">
                 {sidebarItems.map(({ name, href, icon }) => (
