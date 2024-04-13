@@ -2,7 +2,7 @@
 import { AuthProvider, useAuth } from "@pangeacyber/react-auth";
 import AppBar from "../components/AppBar";
 import "./globals.css";
-import SideBar from "../components/SideBar";
+import MainComponent from "../components/index";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const hostedLoginURL = process?.env?.NEXT_PUBLIC_AUTHN_HOSTED_LOGIN_URL || "";
@@ -30,8 +30,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <AuthProvider loginUrl={hostedLoginURL} config={authConfig}>
           <>
-            <AppBar />
-            <SideBar />
+            <MainComponent/>
             {children}           
           </>
         </AuthProvider>
