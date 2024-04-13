@@ -39,11 +39,11 @@ export default function SideBar() {
     return (
         <div>
             <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r bg-custom-pink">
-                <div className="sidebar__top">
+                <div className="flex items-center w-max pb-2 mb-4 border-b-2 border-gray-300">
                     <Image src="/designer-no-bgd.png" 
                     width={80} 
                     height={80} 
-                    className="sidebar__logo object-contain"
+                    className="ml-4 mt-4 w-14 h-14 object-cover rounded-lg"
                     alt="Logo"
                     />
                   <p className="pl-5 text-2xl font-bold tracking-tight text-white mt-4 font-workSans">Finch</p>
