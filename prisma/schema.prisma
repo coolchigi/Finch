@@ -18,6 +18,8 @@ model User {
   bankAccounts BankAccount[]
   category     Category[]
   transaction  Transactions[]
+  email String  @unique
+  name  String?
 
 
 }
