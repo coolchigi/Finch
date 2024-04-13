@@ -8,13 +8,15 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 import { usePathname  } from 'next/navigation'
-import { useAuth } from "@pangeacyber/react-auth";
+import { useAuth} from "@pangeacyber/react-auth";
 import { useEffect, useState } from 'react';
 
 
 export default function SideBar() {
     const { user, authenticated } = useAuth();
     const pathname = usePathname();
+
+    
 
     const [sidebarItems, setSidebarItems] = useState([
       { name: "Dashboard", href: "/", icon: <GrHomeRounded /> },
@@ -28,7 +30,7 @@ export default function SideBar() {
         if (authenticated) {
             setSidebarItems(prevItems => [
                 ...prevItems,
-                { name: `User (${user.profile.first_name})`, href: "/user", icon: <FaRegUserCircle /> }
+                { name: `User (${user.profile.first_name, user.profile.id})`, href: "/user", icon: <FaRegUserCircle /> }
             ]);
             
         }
