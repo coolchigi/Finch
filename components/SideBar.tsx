@@ -22,7 +22,7 @@ export default function SideBar() {
       { name: "Dashboard", href: "/", icon: <GrHomeRounded /> },
       { name: "Transactions", href: "/transactions", icon: <RiMoneyDollarCircleLine /> },
       { name: "Analytics", href: "/analytics", icon: <SiGoogleanalytics /> },
-      { name: "Budgets", href: "/budgets", icon: <PiWallet /> },
+      { name: "Bank Accounts", href: "/bankaccounts", icon: <PiWallet /> },
       { name: "Settings", href: "/settings", icon: <CiSettings /> },
   ]);
 
@@ -50,19 +50,19 @@ export default function SideBar() {
                     />
                   <p className="pl-5 text-2xl font-bold tracking-tight text-white mt-4 font-workSans">Finch</p>
                 </div>
-                <ul className="sidebar__list">
+                <ul className="list-none">
                 {sidebarItems.map(({ name, href, icon }) => (
-                  <li className="sidebar__item" key={name}>
+                  <li key={name}>
                     <Link
                   className={`sidebar__link ${
                     pathname === href ? "sidebar__link--active" : ""
                   }`}
                   href={href}
                 >
-                  <span className="sidebar__icon">
+                  <span className="inline-block text-lg">
                     {icon}
                   </span>
-                  <span className="sidebar__name">{name}</span>
+                  <span className="ml-2">{name}</span>
                 </Link>
                   </li>
                 ))}

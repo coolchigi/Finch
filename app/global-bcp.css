@@ -31,8 +31,14 @@ body {
   border-radius: 0.8rem;
 }
 
+.sidebar__icon {
+  display: inline-block;
+  font-size: 1.2rem;
+}
 
-
+.sidebar__name {
+  margin-left: 0.5rem;
+}
 
 .sidebar__link--active {
   background-color: #ffff;
