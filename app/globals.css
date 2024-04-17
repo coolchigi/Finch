@@ -19,23 +19,6 @@ body {
   
 }
 
-.layout {
-  display: flex;
-  height: 100vh;
-  position: relative;
-  gap: 2rem;
-}
-
-
-
-.sidebar{
-  width: 13rem;
-  height: 100%;
-  background-color: #FAA7A7;
-  padding: 1rem;
-  transition: all .1s linear; 
-  overflow-y: auto;
-}
 
 .sidebar__top{
   width: max-content;

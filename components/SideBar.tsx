@@ -30,7 +30,7 @@ export default function SideBar() {
         if (authenticated) {
             setSidebarItems(prevItems => [
                 ...prevItems,
-                { name: `User (${user.profile.first_name, user.profile.id})`, href: "/user", icon: <FaRegUserCircle /> }
+                { name: `User (${user.profile.first_name})`, href: "/user", icon: <FaRegUserCircle /> }
             ]);
             
         }
