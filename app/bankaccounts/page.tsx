@@ -1,9 +1,9 @@
 "use client";
 
-import styles from "../page.module.css";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const Budgets = () => {
+const BankAccounts = () => {
 
 };
 
-export default Budgets;
+export default BankAccounts;

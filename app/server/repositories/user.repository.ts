@@ -1,7 +1,6 @@
 import prisma  from '../db';
 
 
-
 export async function saveUser(user) {
   const { id, name, email } = user; // assuming the user object has these properties
 
